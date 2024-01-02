@@ -3,8 +3,6 @@ import { Todo } from "./definitions";
 
 export async function fetchTodos() {
   try {
-    console.log('Fetching todo data...');
-
     const data = await sql<Todo>`SELECT * FROM todo`;
 
     return data.rows;
