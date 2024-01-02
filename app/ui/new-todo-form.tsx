@@ -1,18 +1,16 @@
 'use client';
 
-import {
-  PencilIcon
-} from '@heroicons/react/24/outline';
+import { PencilIcon } from '@heroicons/react/24/outline';
 import { useFormState } from 'react-dom';
-import { createTodo } from '../lib/actions';
+import { createTodo } from '@/app/lib/actions';
 import Link from 'next/link';
 
 export default function NewTodoForm() {
-  const initialState = { errors: {}, message: ''};
+  const initialState = { errors: {}, message: '' };
   const [state, dispatch] = useFormState(createTodo, initialState);
 
   return (
-    <div className="flex flex-col m-2 p-4 rounded border-2 border-slate-500">
+    <div className="m-2 flex flex-col rounded border-2 border-slate-500 p-4">
       <form action={dispatch}>
         <fieldset>
           <label
@@ -48,9 +46,14 @@ export default function NewTodoForm() {
           >
             Cancel
           </Link>
-          <button type="submit" className="flex h-10 items-center rounded-lg bg-slate-700 px-4 text-sm font-medium text-white transition-colors hover:bg-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700 active:bg-slate-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50">Create Todo</button>
+          <button
+            type="submit"
+            className="flex h-10 items-center rounded-lg bg-slate-700 px-4 text-sm font-medium text-white transition-colors hover:bg-slate-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-slate-700 active:bg-slate-600 aria-disabled:cursor-not-allowed aria-disabled:opacity-50"
+          >
+            Create Todo
+          </button>
         </div>
       </form>
     </div>
-  )
+  );
 }

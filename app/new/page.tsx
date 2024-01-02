@@ -1,11 +1,11 @@
-import Nav from "../ui/nav";
-import NewTodoForm from "../ui/new-todo-form";
+import Nav from '@/app/ui/nav';
+import NewTodoForm from '@/app/ui/new-todo-form';
 
 export default function Page() {
   return (
-    <main className="home w-screen h-screen flex flex-col">
+    <main className="home flex h-screen w-screen flex-col">
       <Nav />
       <NewTodoForm />
     </main>
-  )
+  );
 }

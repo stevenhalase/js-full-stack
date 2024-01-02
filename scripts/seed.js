@@ -1,12 +1,10 @@
 const { db } = require('@vercel/postgres');
-const {
-  todos
-} = require('./placeholder-data');
+const { todos } = require('./placeholder-data');
 
 async function seedTodos(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
-    
+
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS todo (
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
@@ -49,7 +47,7 @@ async function deleteTodos(client) {
     console.log(`Deleted "todo" table`);
 
     return {
-      dropTable
+      dropTable,
     };
   } catch (error) {
     console.error('Error deleting todo:', error);

@@ -1,5 +1,4 @@
-'use server'
-
+'use server';
 
 import { z } from 'zod';
 import { sql } from '@vercel/postgres';
@@ -19,14 +18,14 @@ const FormSchema = z.object({
   complete: z.boolean(),
   description: z.string({
     invalid_type_error: 'Please enter a description.',
-  })
+  }),
 });
 
 const CreateTodo = FormSchema.omit({ id: true, complete: true });
 
 export async function createTodo(prevState: State, formData: FormData) {
   const validatedFields = CreateTodo.safeParse({
-    description: formData.get('description')
+    description: formData.get('description'),
   });
 
   if (!validatedFields.success) {
@@ -54,10 +53,7 @@ export async function createTodo(prevState: State, formData: FormData) {
   redirect('/dashboard');
 }
 
-export async function updateTodo(
-  id: string,
-  complete: boolean
-) {
+export async function updateTodo(id: string, complete: boolean) {
   try {
     await sql`
       UPDATE todo

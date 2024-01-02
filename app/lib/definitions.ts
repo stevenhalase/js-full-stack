@@ -3,4 +3,4 @@ export type Todo = {
   date: string;
   complete: boolean;
   description: string;
-}
+};

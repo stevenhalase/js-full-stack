@@ -1,11 +1,11 @@
-import { fetchTodos } from "../lib/data";
-import Nav from "../ui/nav";
-import TodoList from "../ui/todo-list";
+import { fetchTodos } from '@/app/lib/data';
+import Nav from '@/app/ui/nav';
+import TodoList from '@/app/ui/todo-list';
 
 export default function Page() {
   const todos = fetchTodos();
   return (
-    <main className="home w-screen h-screen flex flex-col">
+    <main className="home flex h-screen w-screen flex-col">
       <Nav />
       <TodoList />
     </main>

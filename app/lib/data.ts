@@ -1,5 +1,5 @@
 import { sql } from '@vercel/postgres';
-import { Todo } from "./definitions";
+import { Todo } from './definitions';
 
 export async function fetchTodos() {
   try {
